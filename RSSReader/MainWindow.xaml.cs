@@ -32,6 +32,7 @@ namespace RSSReader
            // Console.WriteLine(posts.ToList().Count);
           //  Console.ReadLine();
           //  FeedBox.Text = posts.ToList().ToString();
+          //test
 
             var reader = new FeedReader();
             var items = reader.RetrieveFeed("http://www.nytimes.com/services/xml/rss/nyt/International.xml");
