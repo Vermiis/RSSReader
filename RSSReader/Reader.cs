@@ -8,23 +8,26 @@ using System.Xml.Linq;
 namespace RSSReader
 {
 
-    public class Reader
-    {
-        public IEnumerable<Post> ReadFeed(string url)
-        {
-            var rssFeed = XDocument.Load(url);
+  //  public class Reader
+    //{
+    //    public IEnumerable<Post> ReadFeed(string url)
+    //    {
+    //        var rssFeed = XDocument.Load(url);
 
-            var posts = from item in rssFeed.Descendants("item")
-                        select new Post
-                        {
-                            Title = item.Element("title").Value,
-                            Description = item.Element("description").Value,
-                            PublishedDate = item.Element("pubDate").Value
-                        };
+    //        var posts = from item in rssFeed.Descendants("item")
+    //                    select new Post
+    //                    {
+    //                        Title = item.Element("title").Value,
+    //                        Description = item.Element("description").Value,
+    //                        PublishedDate = item.Element("pubDate").Value
+    //                    };
 
-            return posts;
-        }
-    }
+    //        return posts;
+    //    }
+
+
+ //   }
+//
 
     public class Post
     {
