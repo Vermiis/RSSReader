@@ -35,7 +35,7 @@ namespace RSSReader
 
             var reader = new FeedReader();
             var items = reader.RetrieveFeed("http://www.nytimes.com/services/xml/rss/nyt/International.xml");
-            string feeds=" " ;
+            string feeds="" ;
 
             foreach (var i in items)
             {
@@ -45,7 +45,7 @@ namespace RSSReader
                         i.Title)
                 
                 );
-                feeds += x;
+                feeds += x + "\n";
             }
             FeedBox.Text = feeds;
         }
