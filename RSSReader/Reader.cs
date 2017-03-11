@@ -29,6 +29,7 @@ namespace RSSReader
         //nietest
     //test synchronizajcji1
 
+        //zmiana
  //   }
 //
 
