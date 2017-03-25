@@ -11,35 +11,13 @@ using System.Xml.Linq;
 namespace RSSReader
 {
 
-  //  public class Reader
-    //{
-    //    public IEnumerable<Post> ReadFeed(string url)
-    //    {
-    //        var rssFeed = XDocument.Load(url);
-
-    //        var posts = from item in rssFeed.Descendants("item")
-    //                    select new Post
-    //                    {
-    //                        Title = item.Element("title").Value,
-    //                        Description = item.Element("description").Value,
-    //                        PublishedDate = item.Element("pubDate").Value
-    //                    };
-
-    //        return posts;
-    //    }
-    //push
-
-        //nietest
-    //test synchronizajcji1
-
-        //zmiana
- //   }
-//
+  
 
 
         public class Reader
     {
         public static string Feeds()
+            //finalnie powinien przyjmowac tablice stringow/linkow i z nich sobie pobierac
         {
 
             var reader = new FeedReader();
@@ -76,10 +54,11 @@ namespace RSSReader
             var myTimer = new System.Timers.Timer();
             // Tell the timer what to do when it elapses
             myTimer.Elapsed += new ElapsedEventHandler(myEvent);
-            // Set it to go off every five seconds
+            // Set it to go off every val seconds
             myTimer.Interval = val;
             // And start it        
             myTimer.Enabled = true;
+            // ma pobierać VAL z GUI i wedle wpisanej watosci wywolywac funkcje pobierajaca feed'y
         }
 
 // Implement a call with the right signature for events going off
