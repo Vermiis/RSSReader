@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace RSSReader
 {
     /// <summary>
@@ -28,28 +29,11 @@ namespace RSSReader
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-           // var posts = new Reader().ReadFeed(@"http://www.nytimes.com/services/xml/rss/nyt/International.xml");
-           // Console.WriteLine(posts.ToList().Count);
-          //  Console.ReadLine();
-          //  FeedBox.Text = posts.ToList().ToString();
-          //test
 
-            var reader = new FeedReader();
-            var items = reader.RetrieveFeed("http://www.nytimes.com/services/xml/rss/nyt/International.xml");
-            string feeds="" ;
-
-            foreach (var i in items)
-            {
-                
-                var x=(string.Format("{0}\t{1}",
-                        i.Date.ToString("g"),
-                        i.Title)
-                
-                );
-                feeds += x + "\n";
-            }
-            FeedBox.Text = feeds;
+            FeedBox.Text = RSSReader.Reader.Feeds();          
+      
         }
+
 
     
 
