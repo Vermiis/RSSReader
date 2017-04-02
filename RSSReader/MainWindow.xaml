@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="525">
     <Grid>
-        <TextBox x:Name="FeedBox" HorizontalAlignment="Left" Height="200" Margin="23,102,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="474" RenderTransformOrigin="0.5,0.5" IsReadOnly="True">
+        <TextBox x:Name="FeedBox" HorizontalAlignment="Left" Height="209" Margin="23,93,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="467" RenderTransformOrigin="0.5,0.5" IsReadOnly="True">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
