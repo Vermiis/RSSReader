@@ -30,7 +30,7 @@ namespace RSSReader
         private void button_Click(object sender, RoutedEventArgs e)
         {
 
-            FeedBox.Text = RSSReader.Reader.Feeds();          
+            txt_FeedBox.Text = RSSReader.Reader.Feeds();          
       
         }
 
