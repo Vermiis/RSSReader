@@ -1,5 +1,4 @@
-﻿using SimpleFeedReader;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,38 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 
 namespace RSSReader
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ReadRSSWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ReadRSSWindow : Window
     {
-        public MainWindow()
+        public ReadRSSWindow()
         {
             InitializeComponent();
-        }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-
-            txt_FeedBox.Text = RSSReader.Reader.Feeds();          
-      
         }
 
         private void btn_Close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void btn_Settings_Click(object sender, RoutedEventArgs e)
-        {
-            SettingsWindow Settings = new SettingsWindow();
-            Settings.ShowDialog();
         }
     }
 }
