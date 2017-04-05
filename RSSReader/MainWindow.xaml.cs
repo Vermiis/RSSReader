@@ -34,8 +34,15 @@ namespace RSSReader
       
         }
 
+        private void btn_Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
 
-    
-
+        private void btn_Settings_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsWindow Settings = new SettingsWindow();
+            Settings.ShowDialog();
+        }
     }
 }
