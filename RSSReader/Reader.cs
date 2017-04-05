@@ -1,23 +1,27 @@
-﻿using SimpleFeedReader;
+﻿using RestSharp;
+using SimpleFeedReader;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
+using System.Xml;
 using System.Xml.Linq;
+using Terradue.ServiceModel.Syndication;
 
 namespace RSSReader
 {
 
-  
 
 
-        public class Reader
+
+    public class Reader
     {
         public static string Feeds()
-            //finalnie powinien przyjmowac tablice stringow/linkow i z nich sobie pobierac
+        //finalnie powinien przyjmowac tablice stringow/linkow i z nich sobie pobierac
         {
 
             var reader = new FeedReader();
@@ -43,9 +47,50 @@ namespace RSSReader
         public string PublishedDate;
         public string Description;
         public string Title;
-   
+        public string link { get; set; }
+
     }
 
+    public class Getter
+    {
+    public static string xmel()
+        {
+            var post = new Post();
+            string url = "http://news.google.fr/nwshp?hl=fr&tab=wn&output=rss";
+            using (XmlReader reader = XmlReader.Create(url))
+            {
+                SyndicationFeed feed = SyndicationFeed.Load(reader);
+                post.Title =(feed.Title.Text);
+               post.link=(feed.Links[0].Uri.ToString());
+                foreach (SyndicationItem item in feed.Items)
+                {
+                    post.Title=(item.Title.Text);
+                }
+            }
+
+            return 
+        }
+    }
+    public class Cutter
+    {
+        public static Post Posts(IEnumerable<FeedItem> x)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load("c:\\temp.xml");
+            var pos = new Post();
+            foreach (XmlNode node in doc.DocumentElement.ChildNodes)
+            {
+                string text = node.InnerText; //or loop through its children as well
+                string attr = node.Attributes["link"]?.InnerText;
+            }
+            
+            return 
+            
+            
+        }
+    }
+
+    
     public class Refresher
     {
         void RefreshConfTimer(int val)

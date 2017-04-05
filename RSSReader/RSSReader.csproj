@@ -58,6 +58,10 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="Terradue.ServiceModel.Syndication, Version=1.0.2.16265, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Terradue.ServiceModel.Syndication.1.0.2\lib\net40\Terradue.ServiceModel.Syndication.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -67,6 +71,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataWriter.cs" />
     <Compile Include="Reader.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
