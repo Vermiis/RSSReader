@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="ReadRSSWindow" Height="300" Width="300">
     <Grid>
-        <Button x:Name="btn_Close" Content="Zamknij" HorizontalAlignment="Left" Margin="207,239,0,0" VerticalAlignment="Top" Width="75"/>
-        <RichTextBox x:Name="RTB_RSS" HorizontalAlignment="Left" Height="224" Margin="10,10,0,0" VerticalAlignment="Top" Width="272">
+        <Button x:Name="btn_Close" Content="Zamknij" Margin="207,239,0,0" VerticalAlignment="Center" Width="75" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center"/>
+        <RichTextBox x:Name="RTB_RSS" HorizontalAlignment="Left" Height="224" Margin="10,10,0,0" VerticalAlignment="Top" Width="272" HorizontalContentAlignment="Center">
             <FlowDocument>
                 <Paragraph>
                     <Run Text="RichTextBox"/>
