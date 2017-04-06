@@ -63,11 +63,11 @@ namespace RSSReader
             {
                 SyndicationFeed feed = SyndicationFeed.Load(reader);
                 post.Title =(feed.Title.Text);
-               post.link=(feed.Links[0].Uri.ToString());
+                post.link=(feed.Links[0].Uri.ToString());
                 foreach (SyndicationItem item in feed.Items)
                 {
                     post.Title=(item.Title.Text);
-                    dupa.Add(item);
+                    dupa.Add(post);
                 }
                 
 
@@ -76,24 +76,24 @@ namespace RSSReader
             return dupa; 
         }
     }
-    public class Cutter
-    {
-        public static Post Posts(IEnumerable<FeedItem> x)
-        {
-            XmlDocument doc = new XmlDocument();
-            doc.Load("c:\\temp.xml");
-            var pos = new Post();
-            foreach (XmlNode node in doc.DocumentElement.ChildNodes)
-            {
-                string text = node.InnerText; //or loop through its children as well
-                string attr = node.Attributes["link"]?.InnerText;
-            }
+    //public class Cutter
+    //{
+    //    public static Post Posts(IEnumerable<FeedItem> x)
+    //    {
+    //        XmlDocument doc = new XmlDocument();
+    //        doc.Load("c:\\temp.xml");
+    //        var pos = new Post();
+    //        foreach (XmlNode node in doc.DocumentElement.ChildNodes)
+    //        {
+    //            string text = node.InnerText; //or loop through its children as well
+    //            string attr = node.Attributes["link"]?.InnerText;
+    //        }
 
-            return;
+    //        return;
             
             
-        }
-    }
+    //    }
+    //}
 
     
     public class Refresher

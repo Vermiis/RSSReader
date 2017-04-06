@@ -17,6 +17,8 @@ namespace RSSReader
             {
                 conn.ConnectionString = "Server=[server_name];Database=[database_name];Trusted_Connection=true";
                 // using the code here...
+                string query = "INSERT INTO tabela1(kol 1, kol2, kol3) VALUES (czas, opis, url)";
+
             }
         }
 
