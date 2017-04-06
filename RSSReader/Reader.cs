@@ -53,10 +53,12 @@ namespace RSSReader
 
     public class Getter
     {
-    public static string xmel()
+    public static IEnumerable<Post> xmel()
         {
             var post = new Post();
             string url = "http://news.google.fr/nwshp?hl=fr&tab=wn&output=rss";
+            var dupa = new List<Post>();
+
             using (XmlReader reader = XmlReader.Create(url))
             {
                 SyndicationFeed feed = SyndicationFeed.Load(reader);
@@ -65,10 +67,13 @@ namespace RSSReader
                 foreach (SyndicationItem item in feed.Items)
                 {
                     post.Title=(item.Title.Text);
+                    dupa.Add(item);
                 }
+                
+
             }
 
-            return; 
+            return dupa; 
         }
     }
     public class Cutter
