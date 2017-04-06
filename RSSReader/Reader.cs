@@ -23,11 +23,12 @@ namespace RSSReader
         public static string Feeds()
         //finalnie powinien przyjmowac tablice stringow/linkow i z nich sobie pobierac
         {
-
+            //ccc
             var reader = new FeedReader();
+
             var items = reader.RetrieveFeed("http://www.nytimes.com/services/xml/rss/nyt/International.xml");
             string feeds = "";
-
+            //mój commit
             foreach (var i in items)
             {
 
@@ -63,11 +64,11 @@ namespace RSSReader
             {
                 SyndicationFeed feed = SyndicationFeed.Load(reader);
                 post.Title =(feed.Title.Text);
-                post.link=(feed.Links[0].Uri.ToString());
+               post.link=(feed.Links[0].Uri.ToString());
                 foreach (SyndicationItem item in feed.Items)
                 {
                     post.Title=(item.Title.Text);
-                    dupa.Add(post);
+                    //dupa.Add(item);
                 }
                 
 
