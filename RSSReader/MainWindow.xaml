@@ -8,12 +8,12 @@
         Title="MainWindow" Height="400" Width="525">
     <Grid>
         <Button x:Name="button" Content="Get Feed" HorizontalAlignment="Left" Margin="425,250,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <TextBox x:Name="txt_FeedBox" HorizontalAlignment="Left" Height="23" Margin="334,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Height="322" Width="318"/>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="10,218,0,0" VerticalAlignment="Top" Height="141" Width="318"/>
         <Button x:Name="btn_Close" Content="Zamknij" HorizontalAlignment="Left" Margin="425,339,0,0" VerticalAlignment="Top" Width="75" Click="btn_Close_Click"/>
         <Button x:Name="btn_Settings" Content="Ustawienia" HorizontalAlignment="Left" Margin="425,295,0,0" VerticalAlignment="Top" Width="75" Click="btn_Settings_Click"/>
         <Calendar HorizontalAlignment="Left" Margin="334,37,0,0" VerticalAlignment="Top" Width="183"/>
         <Label x:Name="lbl_RSS" Content="Najnowsze RSS" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="20" FontWeight="Bold"/>
+        <TextBlock x:Name="txt_FeedBox" HorizontalAlignment="Left" Margin="10,42,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="122" Width="318"/>
 
     </Grid>
 </Window>

@@ -68,7 +68,7 @@ namespace RSSReader
                 }
             }
 
-            return 
+            return; 
         }
     }
     public class Cutter
@@ -83,8 +83,8 @@ namespace RSSReader
                 string text = node.InnerText; //or loop through its children as well
                 string attr = node.Attributes["link"]?.InnerText;
             }
-            
-            return 
+
+            return;
             
             
         }
