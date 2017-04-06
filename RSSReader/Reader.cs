@@ -23,7 +23,7 @@ namespace RSSReader
         public static string Feeds()
         //finalnie powinien przyjmowac tablice stringow/linkow i z nich sobie pobierac
         {
-            //cc
+            //ccc
             var reader = new FeedReader();
             var items = reader.RetrieveFeed("http://www.nytimes.com/services/xml/rss/nyt/International.xml");
             string feeds = "";
