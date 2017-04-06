@@ -29,8 +29,9 @@ namespace RSSReader
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-
-            txt_FeedBox.Text = RSSReader.Reader.Feeds();          
+            ReadRSSWindow Rss = new ReadRSSWindow();
+            Rss.ShowDialog();
+            //txt_FeedBox.Text = RSSReader.Reader.Feeds();          
       
         }
 

@@ -22,11 +22,13 @@ namespace RSSReader
         public ReadRSSWindow()
         {
             InitializeComponent();
+            TB_RSS.Text = RSSReader.Reader.Feeds();
         }
 
         private void btn_Close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+
     }
 }

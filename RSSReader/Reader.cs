@@ -25,6 +25,7 @@ namespace RSSReader
         {
             //ccc
             var reader = new FeedReader();
+
             var items = reader.RetrieveFeed("http://www.nytimes.com/services/xml/rss/nyt/International.xml");
             string feeds = "";
             //mój commit
