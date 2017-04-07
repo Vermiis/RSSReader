@@ -31,7 +31,7 @@ namespace RSSReader
         {
             ReadRSSWindow Rss = new ReadRSSWindow();
             Rss.ShowDialog();
-            //txt_FeedBox.Text = RSSReader.Reader.Feeds();          
+                     
       
         }
 

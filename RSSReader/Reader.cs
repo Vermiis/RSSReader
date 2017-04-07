@@ -11,6 +11,7 @@ using System.Timers;
 using System.Xml;
 using System.Xml.Linq;
 using Terradue.ServiceModel.Syndication;
+using RSSReader;
 
 namespace RSSReader
 {
@@ -25,7 +26,10 @@ namespace RSSReader
         {
             //ccc
             var reader = new FeedReader();
+            //if (tb_link)
+            //{
 
+            //}
             var items = reader.RetrieveFeed("http://www.nytimes.com/services/xml/rss/nyt/International.xml");
             string feeds = "";
             //mój commit
