@@ -25,6 +25,8 @@ namespace RSSReader
         public MainWindow()
         {
             InitializeComponent();
+            Class.InicializeDataBase Init = new Class.InicializeDataBase();
+            Init.inicjalizeDataBase();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
