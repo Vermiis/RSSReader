@@ -7,8 +7,12 @@
         mc:Ignorable="d"
         Title="ReadRSSWindow" Height="300" Width="300">
     <Grid>
-        <Button x:Name="btn_Close" Content="Zamknij" Margin="207,239,0,0" VerticalAlignment="Center" Width="75" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" Click="btn_Close_Click"/>
-        <TextBox x:Name="TB_RSS" HorizontalAlignment="Left" Height="229" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="272"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="123*"/>
+            <RowDefinition Height="146*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="btn_Close" Content="Zamknij" Margin="0,0,10,10" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" Click="btn_Close_Click" Grid.Row="1" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="TB_RSS" Margin="10,10,10,35" TextWrapping="Wrap" Text="TextBox" Grid.RowSpan="2"/>
 
     </Grid>
 </Window>
