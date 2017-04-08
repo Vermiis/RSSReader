@@ -7,22 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="525">
     <Grid>
-        <Button x:Name="button" Content="Get Feed" HorizontalAlignment="Left" Margin="425,250,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="10,218,0,0" VerticalAlignment="Top" Height="141" Width="318"/>
-        <Button x:Name="btn_Close" Content="Zamknij" HorizontalAlignment="Left" Margin="425,339,0,0" VerticalAlignment="Top" Width="75" Click="btn_Close_Click"/>
-        <Button x:Name="btn_Settings" Content="Ustawienia" HorizontalAlignment="Left" Margin="425,295,0,0" VerticalAlignment="Top" Width="75" Click="btn_Settings_Click"/>
-        <Calendar HorizontalAlignment="Left" Margin="334,37,0,0" VerticalAlignment="Top" Width="183"/>
+        <Button x:Name="button" Content="Get Feed" Margin="0,0,17,99" Click="button_Click" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom"/>
+        <DataGrid x:Name="dataGrid" Margin="10,42,189,10"/>
+        <Button x:Name="btn_Close" Content="Zamknij" Margin="0,0,17,10" Click="btn_Close_Click" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom"/>
+        <Button x:Name="btn_Settings" Content="Ustawienia" Margin="0,0,17,54" VerticalAlignment="Bottom" Click="btn_Settings_Click" HorizontalAlignment="Right" Width="75"/>
+        <Calendar Margin="0,37,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="183"/>
         <Label x:Name="lbl_RSS" Content="Najnowsze RSS" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="20" FontWeight="Bold"/>
-        <TextBox x:Name="txt_FeedBox" HorizontalAlignment="Left" Height="164" Margin="10,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" RenderTransformOrigin="0.5,0.5">
-            <TextBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.39"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </TextBox.RenderTransform>
-        </TextBox>
 
     </Grid>
 </Window>

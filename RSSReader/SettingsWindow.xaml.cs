@@ -28,5 +28,10 @@ namespace RSSReader
         {
             this.Close();
         }
+
+        private void tb_Link_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            //TODO zapis do bazy
+        }
     }
 }
