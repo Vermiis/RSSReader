@@ -48,6 +48,14 @@ namespace RSSReader
             Settings.ShowDialog();
         }
 
-       
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            Post wpis = new Post();
+            wpis.Description = "Desc";
+            wpis.link = "WWW";
+            wpis.PublishedDate = DateTime.Now.ToString();
+
+            DataWriter.ZapisTest(wpis);
+        }
     }
 }
