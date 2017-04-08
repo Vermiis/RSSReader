@@ -39,7 +39,7 @@ namespace RSSReader
             con.Open();
             try
             {
-                string strSql = "INSERT INTO Feeds(FeedID, Date, Title, Url) VALUES (ID,"+wpis.PublishedDate+","+wpis.Title+", "+wpis.link+")";
+                string strSql = "INSERT INTO Feeds(Date, Title, Url) VALUES ("+wpis.PublishedDate+","+wpis.Title+", "+wpis.link+")";
                 SqlCommand cmd = new SqlCommand(strSql, con);
                 DataSet dset = new DataSet();
                 cmd.ExecuteNonQuery();

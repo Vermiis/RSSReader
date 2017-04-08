@@ -62,7 +62,7 @@ namespace RSSReader
         {
             var post = new Post();
             string url = "http://news.google.fr/nwshp?hl=fr&tab=wn&output=rss";
-            var dupa = new List<Post>();
+            var feedsList = new List<Post>();
 
             using (XmlReader reader = XmlReader.Create(url))
             {
@@ -72,7 +72,7 @@ namespace RSSReader
                 foreach (SyndicationItem item in feed.Items)
                 {
                     post.Title=(item.Title.Text);
-                    dupa.Add(post);
+                    feedsList.Add(post);
                 }
                 
 
