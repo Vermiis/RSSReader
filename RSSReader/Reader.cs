@@ -78,7 +78,7 @@ namespace RSSReader
 
             }
 
-            return dupa; 
+            return feedsList; 
         }
     }
     //public class Cutter
