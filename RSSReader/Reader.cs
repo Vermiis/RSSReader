@@ -64,11 +64,11 @@ namespace RSSReader
             {
                 SyndicationFeed feed = SyndicationFeed.Load(reader);
                 post.Title =(feed.Title.Text);
-               post.link=(feed.Links[0].Uri.ToString());
+                post.link=(feed.Links[0].Uri.ToString());
                 foreach (SyndicationItem item in feed.Items)
                 {
                     post.Title=(item.Title.Text);
-                    //dupa.Add(item);
+                    dupa.Add(item);
                 }
                 
 
