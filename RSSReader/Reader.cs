@@ -72,7 +72,7 @@ namespace RSSReader
                 foreach (SyndicationItem item in feed.Items)
                 {
                     post.Title=(item.Title.Text);
-                    dupa.Add(item);
+                    dupa.Add(post);
                 }
                 
 
