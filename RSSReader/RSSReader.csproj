@@ -76,6 +76,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UserIDURLID.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="DataBase.cs" />
     <Compile Include="DataWriter.cs" />
