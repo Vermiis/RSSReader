@@ -62,25 +62,25 @@ namespace RSSReader
         "Initial Catalog=RSSReader;" +
         "Data Source=localhost\\SQLEXPRESS;";
 
-        void fnGetConnection()
-        {
-            try
-            {
-                // setup the database connection
-                con = new SqlConnection(constr);
-                con.Open();
-            }
-            catch (Exception ex)
-            {
-               // MessageBox.Show("Error in connection : " + ex.Message);
-            }
-            finally
-            {
-                // dispose of open objects
-                if (con != null)
-                    con.Close();
-            } //finally
-        }
+        //void fnGetConnection()
+        //{
+        //    try
+        //    {
+        //        // setup the database connection
+        //        con = new SqlConnection(constr);
+        //        con.Open();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //       // MessageBox.Show("Error in connection : " + ex.Message);
+        //    }
+        //    finally
+        //    {
+        //        // dispose of open objects
+        //        if (con != null)
+        //            con.Close();
+        //    } //finally
+        //}
     }
 
 
