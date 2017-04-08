@@ -31,7 +31,7 @@ namespace RSSReader
 
         }
 
-        public static void ZapisTest(string query)
+        public static void ZapisTest(Post wpis)
         {
 
             string strCon = @"Data Source=SONY\MYSQLSERVER;" + "Initial Catalog=pubs;Integrated Security=SSPI";
@@ -39,9 +39,10 @@ namespace RSSReader
             con.Open();
             try
             {
-                string strSql = "INSERT INTO tabela1(kol 1, kol2, kol3) VALUES (czas, opis, url)";
+                string strSql = "INSERT INTO Feeds(FeedID, Date, Title, Url) VALUES (ID,"+wpis.PublishedDate+","+wpis.Title+", "+wpis.link+")";
                 SqlCommand cmd = new SqlCommand(strSql, con);
                 DataSet dset = new DataSet();
+                cmd.ExecuteNonQuery();
                 dset.ReadXml(cmd.ExecuteXmlReader(), XmlReadMode.Fragment);
                 // XmlDisplay.DocumentContent = dset.GetXml();
             }

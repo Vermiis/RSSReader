@@ -52,7 +52,7 @@ namespace RSSReader
         public string PublishedDate;
         public string Description;
         public string Title;
-        public string link { get; set; }
+        public string link;
 
     }
 
