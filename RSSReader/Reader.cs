@@ -49,7 +49,7 @@ namespace RSSReader
 
     public class Post
     {
-        public string PublishedDate;
+        public DateTime PublishedDate;
         public string Description;
         public string Title;
         public string link;
@@ -124,5 +124,5 @@ namespace RSSReader
     
     }
 
-    
+    //push test
 }

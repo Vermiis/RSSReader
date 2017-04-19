@@ -53,7 +53,7 @@ namespace RSSReader
             Post wpis = new Post();
             wpis.Description = "Desc";
             wpis.link = "WWW";
-            wpis.PublishedDate = DateTime.Now.ToString();
+            wpis.PublishedDate = DateTime.Now;
 
             DataWriter.ZapisTest(wpis);
         }
