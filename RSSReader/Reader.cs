@@ -24,7 +24,7 @@ namespace RSSReader
         public static string Feeds()
         //finalnie powinien przyjmowac tablice stringow/linkow i z nich sobie pobierac
         {
-            //ccc
+            //cccddddupa
             var reader = new FeedReader();
             //if (tb_link)
             //{
