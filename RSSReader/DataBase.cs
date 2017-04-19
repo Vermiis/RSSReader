@@ -10,7 +10,7 @@ namespace RSSReader.Class
     class DataBase: DbContext
     {
         //dddd
-        //ddd
+        //ddds
         public DataBase(): base()
         {
 
