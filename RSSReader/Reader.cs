@@ -24,9 +24,7 @@ namespace RSSReader
         public static string Feeds()
         //finalnie powinien przyjmowac tablice stringow/linkow i z nich sobie pobierac xxxx
         {
-            //zostaw moj¹ dupe w spokoju
-            // It's a life !! :D
-            //cccdddd
+
             var reader = new FeedReader();
             //if (tb_link)
             //{
@@ -34,7 +32,6 @@ namespace RSSReader
             //}
             var items = reader.RetrieveFeed("http://www.nytimes.com/services/xml/rss/nyt/International.xml");
             string feeds = "";
-            //mój commit
             foreach (var i in items)
             {
 

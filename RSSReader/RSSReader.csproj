@@ -91,6 +91,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Settings.cs" />
     <Compile Include="UserIDURLID.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="DataBase.cs" />
