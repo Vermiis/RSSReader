@@ -44,5 +44,22 @@ namespace RSSReader
             MSDEcommand.ExecuteNonQuery();
             MSDEconn.Close();
         }
+
+        private void btn_Save_Click(object sender, RoutedEventArgs e)
+        {
+            if (tb_refreshTime.Text!=null || tb_Link.Text!=null )
+            {
+                int refreshTime;
+                bool res= int.TryParse(tb_refreshTime.ToString(), out refreshTime);
+                Properties.Settings.Default.Link = tb_Link.ToString();
+                Properties.Settings.Default.Refresh = refreshTime;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                MessageBox.Show("Wpisane wartości nie są prawidłowe");
+            }
+            
+        }
     }
 }
