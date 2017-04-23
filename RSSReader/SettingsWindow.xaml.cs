@@ -47,11 +47,11 @@ namespace RSSReader
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
-            if (tb_refreshTime.Text!=null || tb_Link.Text!=null )
+            int refreshTime;
+            bool res = int.TryParse(tb_refreshTime.Text.ToString(), out refreshTime);
+            if (tb_refreshTime.Text !="" && tb_Link.Text!="" && res==true)
             {
-                int refreshTime;
-                bool res= int.TryParse(tb_refreshTime.ToString(), out refreshTime);
-                Properties.Settings.Default.Link = tb_Link.ToString();
+                Properties.Settings.Default.Link = tb_Link.Text.ToString();
                 Properties.Settings.Default.Refresh = refreshTime;
                 Properties.Settings.Default.Save();
             }
