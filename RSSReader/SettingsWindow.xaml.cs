@@ -23,13 +23,19 @@ namespace RSSReader
         public SettingsWindow()
         {
             InitializeComponent();
+            LoadData();
         }
 
         private void btn_Close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+        void LoadData()
+        {
+            tb_Link.Text = Properties.Settings.Default.Link;
+            tb_refreshTime.Text = Properties.Settings.Default.Refresh.ToString();
 
+        }
         private void tb_Link_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             //TODO zapis do bazy
@@ -54,6 +60,7 @@ namespace RSSReader
                 Properties.Settings.Default.Link = tb_Link.Text.ToString();
                 Properties.Settings.Default.Refresh = refreshTime;
                 Properties.Settings.Default.Save();
+                MessageBox.Show("Zapisano");
             }
             else
             {
