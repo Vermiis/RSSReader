@@ -33,7 +33,7 @@ namespace RSSReader
 
         public static void ZapisTest(Post wpis)
         {
-
+            //Test
             string strCon = @"Data Source=SONY\MYSQLSERVER;" + "Initial Catalog=pubs;Integrated Security=SSPI";
             SqlConnection con = new SqlConnection(strCon);
             con.Open();
