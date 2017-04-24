@@ -55,7 +55,7 @@ namespace RSSReader
         {
             int refreshTime;
             bool res = int.TryParse(tb_refreshTime.Text.ToString(), out refreshTime);
-            if (tb_refreshTime.Text !="" && tb_Link.Text!="" && res==true)
+            if (tb_refreshTime.Text !="" && tb_Link.Text!="" && res==true && refreshTime>0)
             {
                 Properties.Settings.Default.Link = tb_Link.Text.ToString();
                 Properties.Settings.Default.Refresh = refreshTime;
