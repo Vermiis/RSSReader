@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -30,10 +31,25 @@ namespace RSSReader
         {
             this.Close();
         }
+        StringCollection CreateCollection()
+        {
+            StringCollection Link = new StringCollection();
+            //var Link = new List<string>();
+            string value =tb_Link.Text.ToString();
+            Char delimiter = ';';
+            String[] substrings = value.Split(delimiter);
+            Link.AddRange(substrings);
+            //foreach (var substring in substrings)
+            //{
+            //    Link.Add(substring);
+            //}
+            return Link;
+        }
         void LoadData()
         {
             tb_Link.Text = Properties.Settings.Default.Link;
             tb_refreshTime.Text = Properties.Settings.Default.Refresh.ToString();
+            
 
         }
         private void tb_Link_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -58,6 +74,7 @@ namespace RSSReader
             if (tb_refreshTime.Text !="" && tb_Link.Text!="" && res==true && refreshTime>0)
             {
                 Properties.Settings.Default.Link = tb_Link.Text.ToString();
+                Properties.Settings.Default.LinkColection = CreateCollection();
                 Properties.Settings.Default.Refresh = refreshTime;
                 Properties.Settings.Default.Save();
                 MessageBox.Show("Zapisano");
