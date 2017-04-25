@@ -46,5 +46,16 @@ namespace RSSReader.Properties {
                 this["Link"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection LinkColection {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["LinkColection"]));
+            }
+            set {
+                this["LinkColection"] = value;
+            }
+        }
     }
 }
