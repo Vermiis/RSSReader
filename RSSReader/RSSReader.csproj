@@ -92,12 +92,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Settings.cs" />
-    <Compile Include="UserIDURLID.cs" />
-    <Compile Include="Category.cs" />
+    <Compile Include="DataClass\UserIDURLID.cs" />
+    <Compile Include="DataClass\Category.cs" />
     <Compile Include="DataBase.cs" />
     <Compile Include="DataWriter.cs" />
-    <Compile Include="Feeds.cs" />
-    <Compile Include="IDUserIDCategory.cs" />
+    <Compile Include="DataClass\Feeds.cs" />
+    <Compile Include="DataClass\IDUserIDCategory.cs" />
     <Compile Include="InicializeDataBase.cs" />
     <Compile Include="Reader.cs" />
     <Compile Include="ReadRSSWindow.xaml.cs">
@@ -106,7 +106,7 @@
     <Compile Include="SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
+    <Compile Include="DataClass\User.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

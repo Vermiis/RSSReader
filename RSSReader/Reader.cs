@@ -12,6 +12,7 @@ using System.Xml;
 using System.Xml.Linq;
 using Terradue.ServiceModel.Syndication;
 using RSSReader;
+using System.Windows.Forms;
 
 namespace RSSReader
 {
@@ -61,12 +62,16 @@ namespace RSSReader
         public static IEnumerable<Post> xmel()
         {
             var post = new Post();
-            string url = "http://news.google.fr/nwshp?hl=fr&tab=wn&output=rss";
+
+
+            string urll = "http://news.google.fr/nwshp?hl=fr&tab=wn&output=rss";
             var feedsList = new List<Post>();
 
-            using (XmlReader reader = XmlReader.Create(url))
+            using (XmlReader reader = XmlReader.Create(urll))
             {
+                MessageBox.Show(reader.ToString());
                 SyndicationFeed feed = SyndicationFeed.Load(reader);
+
                 post.Title = (feed.Title.Text);
                 post.link = (feed.Links[0].Uri.ToString());
                 foreach (SyndicationItem item in feed.Items)
