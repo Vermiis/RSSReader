@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RSSReader"
         mc:Ignorable="d"
-        Title="SettingsWindow" Height="300" Width="300">
-    <Grid>
-        <TextBox x:Name="tb_Link" Height="165" Margin="12,69,19,0" TextWrapping="Wrap" VerticalAlignment="Top" DataContextChanged="tb_Link_DataContextChanged"/>
-        <Label x:Name="lbl_Name" Content="Link dla RSS" HorizontalAlignment="Left" Margin="12,38,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btn_Close" Content="Zamknij" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Click="btn_Close_Click"/>
-        <Button x:Name="btn_Save" Content="Zapisz" HorizontalAlignment="Right" Margin="0,0,100,10" VerticalAlignment="Bottom" Width="75" Click="btn_Save_Click"/>
+        Title="SettingsWindow" Height="334" Width="402">
+    <Grid Margin="0,0,26,-2">
+        <TextBox x:Name="tb_Link" Height="165" Margin="12,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" DataContextChanged="tb_Link_DataContextChanged" TextChanged="tb_Link_TextChanged" HorizontalAlignment="Left" Width="356"/>
+        <Label x:Name="lbl_Name" Content="Link dla RSS - Wprowadź adresy odzielając kolejne znakiem &quot;;&quot;" HorizontalAlignment="Left" Margin="12,38,-25,0" VerticalAlignment="Top" Width="337"/>
+        <Button x:Name="btn_Close" Content="Zamknij" HorizontalAlignment="Right" Margin="0,0,-14,10" VerticalAlignment="Bottom" Width="75" Click="btn_Close_Click"/>
+        <Button x:Name="btn_Save" Content="Zapisz" HorizontalAlignment="Right" Margin="0,0,76,10" VerticalAlignment="Bottom" Width="75" Click="btn_Save_Click"/>
         <Label x:Name="lbl_RefreshTime" Content="Czas odświeżania(min)" HorizontalAlignment="Left" Margin="12,7,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tb_refreshTime" Height="23" Margin="146,10,42,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_refreshTime" Height="23" Margin="146,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
     </Grid>
 </Window>

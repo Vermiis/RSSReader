@@ -85,5 +85,10 @@ namespace RSSReader
             }
             
         }
+
+        private void tb_Link_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
