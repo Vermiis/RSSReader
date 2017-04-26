@@ -131,18 +131,20 @@ namespace RSSReader
 
     public class FcukXML
     {
-        public static void GetLinksFromFile(string myXmlString)
+        public static List<string> GetLinksFromFile(string myXmlString)
         {
             XmlDocument xml = new XmlDocument();
+            List<string> linki = null;
             xml.LoadXml(myXmlString); // suppose that myXmlString contains "<Names>...</Names>"
 
             XmlNodeList xnList = xml.SelectNodes("/ArrayOfString");
             foreach (XmlNode xn in xnList)
             {
                 string link = xn["String"].InnerText;
-             
-                Console.WriteLine("Name: {0}", link );
+
+                linki.Add(link);
             }
+            return linki;
 
         }
     }
