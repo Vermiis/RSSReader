@@ -13,6 +13,7 @@ using System.Xml.Linq;
 using Terradue.ServiceModel.Syndication;
 using RSSReader;
 using System.Windows.Forms;
+using System.IO;
 
 namespace RSSReader
 {
@@ -63,12 +64,14 @@ namespace RSSReader
         {
             var post = new Post();
 
-            string urll = "http://wiadomosci.wp.pl/ver,rss,rss.xml";
+
+            string urll = "http://www.nytimes.com/services/xml/rss/nyt/International.xml";
             var feedsList = new List<Post>();
 
-                XmlReader reader = new XmlTextReader(urll);
+            using (XmlReader reader = XmlReader.Create(new StringReader(urll)))
+            {
+                MessageBox.Show(reader.ToString());
                 SyndicationFeed feed = SyndicationFeed.Load(reader);
-                MessageBox.Show(reader.Value.ToString());
 
                 post.Title = (feed.Title.Text);
                 post.link = (feed.Links[0].Uri.ToString());
@@ -77,6 +80,9 @@ namespace RSSReader
                     post.Title = (item.Title.Text);
                     feedsList.Add(post);
                 }
+
+
+            }
 
             return feedsList;
         }
@@ -126,18 +132,20 @@ namespace RSSReader
 
     public class FcukXML
     {
-        public static void GetLinksFromFile(string myXmlString)
+        public static List<string> GetLinksFromFile(string myXmlString)
         {
             XmlDocument xml = new XmlDocument();
+            List<string> linki = null;
             xml.LoadXml(myXmlString); // suppose that myXmlString contains "<Names>...</Names>"
 
             XmlNodeList xnList = xml.SelectNodes("/ArrayOfString");
             foreach (XmlNode xn in xnList)
             {
                 string link = xn["String"].InnerText;
-             
-                Console.WriteLine("Name: {0}", link );
+
+                linki.Add(link);
             }
+            return linki;
 
         }
     }
