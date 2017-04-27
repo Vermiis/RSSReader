@@ -135,7 +135,7 @@ namespace RSSReader
         {
             XmlDocument xml = new XmlDocument();
             List<string> linki = null;
-            xml.LoadXml(myXmlString); // suppose that myXmlString contains "<Names>...</Names>"
+            xml.LoadXml(myXmlString); 
 
             XmlNodeList xnList = xml.SelectNodes("/ArrayOfString");
             foreach (XmlNode xn in xnList)
