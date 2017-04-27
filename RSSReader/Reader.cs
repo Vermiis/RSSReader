@@ -63,14 +63,12 @@ namespace RSSReader
         {
             var post = new Post();
 
-
-            string urll = "http://news.google.fr/nwshp?hl=fr&tab=wn&output=rss";
+            string urll = "http://wiadomosci.wp.pl/ver,rss,rss.xml";
             var feedsList = new List<Post>();
 
-            using (XmlReader reader = XmlReader.Create(urll))
-            {
-                MessageBox.Show(reader.ToString());
+                XmlReader reader = new XmlTextReader(urll);
                 SyndicationFeed feed = SyndicationFeed.Load(reader);
+                MessageBox.Show(reader.Value.ToString());
 
                 post.Title = (feed.Title.Text);
                 post.link = (feed.Links[0].Uri.ToString());
@@ -79,9 +77,6 @@ namespace RSSReader
                     post.Title = (item.Title.Text);
                     feedsList.Add(post);
                 }
-
-
-            }
 
             return feedsList;
         }
