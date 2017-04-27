@@ -24,7 +24,7 @@ namespace RSSReader
     {
         public MainWindow()
         {
-            //d
+            
             RSSReader.Getter.xmel();
             InitializeComponent();
             Class.InicializeDataBase Init = new Class.InicializeDataBase();

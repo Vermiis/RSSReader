@@ -13,6 +13,7 @@ using System.Xml.Linq;
 using Terradue.ServiceModel.Syndication;
 using RSSReader;
 using System.Windows.Forms;
+using System.IO;
 
 namespace RSSReader
 {
@@ -64,10 +65,10 @@ namespace RSSReader
             var post = new Post();
 
 
-            string urll = "http://news.google.fr/nwshp?hl=fr&tab=wn&output=rss";
+            string urll = "http://www.nytimes.com/services/xml/rss/nyt/International.xml";
             var feedsList = new List<Post>();
 
-            using (XmlReader reader = XmlReader.Create(urll))
+            using (XmlReader reader = XmlReader.Create(new StringReader(urll)))
             {
                 MessageBox.Show(reader.ToString());
                 SyndicationFeed feed = SyndicationFeed.Load(reader);
