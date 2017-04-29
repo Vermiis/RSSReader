@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 using System.Timers;
 using System.Xml;
 using System.Xml.Linq;
-using Terradue.ServiceModel.Syndication;
 using RSSReader;
 using System.Windows.Forms;
 using System.IO;
+using System.ServiceModel.Syndication;
 
 namespace RSSReader
 {
