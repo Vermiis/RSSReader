@@ -130,7 +130,7 @@ namespace RSSReader
 
     }
 
-    public class FcukXML
+    public class TnijXML
     {
         public static List<string> GetLinksFromFile(string myXmlString)
         {
