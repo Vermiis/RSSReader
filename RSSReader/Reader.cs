@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 using System.Timers;
 using System.Xml;
 using System.Xml.Linq;
-using Terradue.ServiceModel.Syndication;
 using RSSReader;
 using System.Windows.Forms;
 using System.IO;
+using System.ServiceModel.Syndication;
 
 namespace RSSReader
 {
@@ -64,11 +64,12 @@ namespace RSSReader
             var post = new Post();
 
 
-            string urll = "http://www.nytimes.com/services/xml/rss/nyt/International.xml";
+            string urll = "http://wiadomosci.wp.pl/ver,rss,rss.xml";
             var feedsList = new List<Post>();
 
-            using (XmlReader reader = XmlReader.Create(new StringReader(urll)))
-            {
+            XmlReader reader = XmlReader.Create(urll);
+            //using (XmlReader reader = XmlReader.Create(urll))
+            //{
                 MessageBox.Show(reader.ToString());
                 SyndicationFeed feed = SyndicationFeed.Load(reader);
 
@@ -81,7 +82,7 @@ namespace RSSReader
                 }
 
 
-            }
+            //}
 
             return feedsList;
         }
@@ -129,13 +130,13 @@ namespace RSSReader
 
     }
 
-    public class FcukXML
+    public class TnijXML
     {
         public static List<string> GetLinksFromFile(string myXmlString)
         {
             XmlDocument xml = new XmlDocument();
             List<string> linki = null;
-            xml.LoadXml(myXmlString); // suppose that myXmlString contains "<Names>...</Names>"
+            xml.LoadXml(myXmlString); 
 
             XmlNodeList xnList = xml.SelectNodes("/ArrayOfString");
             foreach (XmlNode xn in xnList)
