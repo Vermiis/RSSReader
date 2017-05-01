@@ -1,4 +1,4 @@
-using SimpleFeedReader;
+ï»¿using SimpleFeedReader;
 using System.Collections.Generic;
 using System.Timers;
 using System.Xml;
@@ -23,7 +23,7 @@ namespace RSSReader
             //}
             var items = reader.RetrieveFeed("http://www.nytimes.com/services/xml/rss/nyt/International.xml");
             string feeds = "";
-            //mój commit
+            //mÃ³j commit
             foreach (var i in items)
             {
 
@@ -60,16 +60,16 @@ namespace RSSReader
             XmlReader reader = XmlReader.Create(urll);
             //using (XmlReader reader = XmlReader.Create(urll))
             //{
-                MessageBox.Show(reader.ToString());
-                SyndicationFeed feed = SyndicationFeed.Load(reader);
+            MessageBox.Show(reader.ToString());
+            SyndicationFeed feed = SyndicationFeed.Load(reader);
 
-                post.Title = (feed.Title.Text);
-                post.link = (feed.Links[0].Uri.ToString());
-                foreach (SyndicationItem item in feed.Items)
-                {
-                    post.Title = (item.Title.Text);
-                    feedsList.Add(post);
-                }
+            post.Title = (feed.Title.Text);
+            post.link = (feed.Links[0].Uri.ToString());
+            foreach (SyndicationItem item in feed.Items)
+            {
+                post.Title = (item.Title.Text);
+                feedsList.Add(post);
+            }
 
 
             //}
@@ -109,7 +109,7 @@ namespace RSSReader
             myTimer.Interval = val;
             // And start it        
             myTimer.Enabled = true;
-            // ma pobieraæ VAL z GUI i wedle wpisanej watosci wywolywac funkcje pobierajaca feed'y
+            // ma pobieraÄ‡ VAL z GUI i wedle wpisanej watosci wywolywac funkcje pobierajaca feed'y
         }
 
         // Implement a call with the right signature for events going off
@@ -126,7 +126,7 @@ namespace RSSReader
         {
             XmlDocument xml = new XmlDocument();
             List<string> linki = null;
-            xml.LoadXml(myXmlString); 
+            xml.LoadXml(myXmlString);
 
             XmlNodeList xnList = xml.SelectNodes("/ArrayOfString");
             foreach (XmlNode xn in xnList)

@@ -89,6 +89,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Reader.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="DataClass\UserIDURLID.cs" />
     <Compile Include="DataClass\Category.cs" />
@@ -97,7 +98,6 @@
     <Compile Include="DataClass\Feeds.cs" />
     <Compile Include="DataClass\IDUserIDCategory.cs" />
     <Compile Include="InicializeDataBase.cs" />
-    <Compile Include="Reader.cs" />
     <Compile Include="ReadRSSWindow.xaml.cs">
       <DependentUpon>ReadRSSWindow.xaml</DependentUpon>
     </Compile>
