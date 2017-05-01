@@ -1,18 +1,8 @@
-using RestSharp;
 using SimpleFeedReader;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Timers;
 using System.Xml;
-using System.Xml.Linq;
-using RSSReader;
 using System.Windows.Forms;
-using System.IO;
 using System.ServiceModel.Syndication;
 
 namespace RSSReader
