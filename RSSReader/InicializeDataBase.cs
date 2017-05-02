@@ -14,7 +14,7 @@ namespace RSSReader.Class
 
          using (var ctx = new DataBase())
                 {
-                    Feeds Feed = new Feeds(1, new DateTime(2010,11,12),"Some feed", "Some description", "Some url" );
+                    Feeds Feed = new Feeds(1,1, new DateTime(2010,11,12),"Some feed", "Some description", "Some url", null );
                     Category Ctg = new Category(1, "Some ctg");
                     User Us = new User(1, "Some");
                     IDUserIDCategory IDUIDC = new IDUserIDCategory(1, 1);

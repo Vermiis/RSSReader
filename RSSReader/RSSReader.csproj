@@ -89,6 +89,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Post.cs" />
     <Compile Include="Reader.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="DataClass\UserIDURLID.cs" />
