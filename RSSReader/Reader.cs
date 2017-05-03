@@ -7,10 +7,6 @@ using System.ServiceModel.Syndication;
 
 namespace RSSReader
 {
-
-
-
-
     public class Reader
     {
         // Pytanie, czym się różni funcja Feeds() od xmel(), mam wrażenie że obie realizują to samo zadanie.
@@ -34,7 +30,7 @@ namespace RSSReader
 
     public class Getter
     {
-        public static IEnumerable<Post> xmel()
+        public static List<Post> xmel()
         {
             var feedsList = new List<Post>();
             List<string> UrlList = new List<string>();
@@ -50,11 +46,11 @@ namespace RSSReader
                 foreach (var item in feed.Items)
                 {
                     Post post = new Post();
-                    post.Title = item.Title.ToString();
-                    post.Description = item.Summary.ToString();
-                    post.PublishedDate = item.PublishDate.ToString();
-                    post.Link = item.Links.ToString();
-                    feedsList.Add(post);
+                    post.Title = item.Title.Text;
+                    post.Description = item.Summary.Text;
+                    post.PublishedDate = DataTimeConverter.ConvertDateTime(item.PublishDate.DateTime.ToString());
+                    post.Link = "";
+                    feedsList.Add(post);              
                 }
                 
             }

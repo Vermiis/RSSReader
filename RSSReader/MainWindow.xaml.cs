@@ -11,21 +11,17 @@ namespace RSSReader
     {
         public MainWindow()
         {
-            
-            RSSReader.Getter.xmel();
             InitializeComponent();
+            DataTimeConverter.ConvertDateTime("");
             Class.InicializeDataBase Init = new Class.InicializeDataBase();
             Init.inicjalizeDataBase();
-            Post p = new Post();
-            DataWriter.Write(p);
+            DataWriter.WriteFeeds(Getter.xmel());
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             ReadRSSWindow Rss = new ReadRSSWindow();
             Rss.ShowDialog();
-                     
-      
         }
 
         private void btn_Close_Click(object sender, RoutedEventArgs e)
