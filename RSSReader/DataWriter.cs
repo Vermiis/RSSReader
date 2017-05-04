@@ -17,7 +17,7 @@ namespace RSSReader
         {
             using (SqlConnection cn = new SqlConnection())
             {
-                cn.ConnectionString = @"Data Source=DESKTOP-KEKK5K0\SQLEXPRESS;Initial Catalog=RSSReader.Class.DataBase;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;";
+                cn.ConnectionString = @"Data Source=LOCALHOST\SQLEXPRESS;Initial Catalog=RSSReader.Class.DataBase;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;";
 
                 cn.Open();
                 foreach (var post in Posts)
