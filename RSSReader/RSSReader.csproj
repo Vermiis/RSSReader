@@ -69,6 +69,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -90,8 +92,26 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataTimeConverter.cs" />
+    <Compile Include="Feed.cs">
+      <DependentUpon>RSSTileModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Post.cs" />
     <Compile Include="Reader.cs" />
+    <Compile Include="RSSTileModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RSSTileModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RSSTileModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RSSTileModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RSSTileModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RSSTileModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="DataClass\UserIDURLID.cs" />
     <Compile Include="DataClass\Category.cs" />
@@ -153,6 +173,13 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <EntityDeploy Include="RSSTileModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RSSTileModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="RSSTileModel.edmx.diagram">
+      <DependentUpon>RSSTileModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -178,6 +205,21 @@
     <Resource Include="wp.xml">
       <SubType>Designer</SubType>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RSSTileModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RSSTileModel.edmx</DependentUpon>
+      <LastGenOutput>RSSTileModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="RSSTileModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RSSTileModel.edmx</DependentUpon>
+      <LastGenOutput>RSSTileModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
