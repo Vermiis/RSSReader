@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Data.Entity.Core.Objects;
+using System.Drawing;
 using System.Windows;
-
+using System.Windows.Controls;
+using System.Windows.Documents;
 
 namespace RSSReader
 {
@@ -31,14 +33,7 @@ namespace RSSReader
                 //DG_RSSTitle.Items.Add = feed.Title.ToString();
                 //a++;
             }
-            //ObjectQuery<Feed> products = dataEntities.Feeds.Local;
-
-            //var query =
-            //from feed in products
-            //where feed. == "Red"
-            //orderby product.ListPrice
-            //select new { product.Name, product.Color, CategoryName = product.ProductCategory.Name, product.ListPrice };
-
+            //this.DG_RSSTitle.Columns[0].Visibility = Visibility.Hidden;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -61,6 +56,22 @@ namespace RSSReader
         private void button1_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void DG_RSSTitle_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            RTB_RSSDesc.Document.Blocks.Clear();
+            var test=DG_RSSTitle.CurrentCell.Item;
+            string description = ((RSSReader.Feed)test).Description;
+            RTB_RSSDesc.Document.Blocks.Add(new Paragraph(new Run(description)));
+        }
+        public DataGridCell GetDataGridCell(DataGridCellInfo cellInfo)
+        {
+            var cellContent = cellInfo.Column.GetCellContent(cellInfo.Item);
+            if (cellContent != null)
+                return (DataGridCell)cellContent.Parent;
+
+            return null;
         }
     }
 }
