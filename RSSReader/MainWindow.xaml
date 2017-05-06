@@ -11,27 +11,30 @@
             <RowDefinition Height="35*"/>
             <RowDefinition Height="24*"/>
             <RowDefinition Height="65*"/>
-            <RowDefinition Height="31*"/>
+            <RowDefinition Height="31"/>
             <RowDefinition Height="64*"/>
             <RowDefinition Height="150*"/>
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="29*"/>
-            <ColumnDefinition Width="18*"/>
+            <ColumnDefinition Width="246*"/>
+            <ColumnDefinition Width="271*"/>
         </Grid.ColumnDefinitions>
         <Button x:Name="button" Content="Get Feed" Margin="110,19,0,0" Click="button_Click" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75" Grid.RowSpan="2"/>
         <DataGrid x:Name="DG_RSSTitle" Margin="129,9,10,2" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="3" MouseDoubleClick="DG_RSSTitle_MouseDoubleClick"/>
-        <Button x:Name="btn_Close" Content="Zamknij" Margin="270,19,0,0" Click="btn_Close_Click" HorizontalAlignment="Left" Width="75" Height="20" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-        <Button x:Name="btn_Settings" Content="Ustawienia" Margin="190,19,0,0" Click="btn_Settings_Click" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75" Grid.RowSpan="2"/>
+        <Button x:Name="btn_Close" Content="Zamknij" Margin="24,19,0,0" Click="btn_Close_Click" HorizontalAlignment="Left" Width="75" Height="20" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="1"/>
+        <Button x:Name="btn_Settings" Content="Ustawienia" Margin="190,19,0,0" Click="btn_Settings_Click" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
         <Label x:Name="lbl_RSS" Content="Najnowsze RSS" HorizontalAlignment="Left" Margin="20,15,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="20" FontWeight="Bold" Height="33" Width="158" Grid.Row="1" Grid.RowSpan="2"/>
         <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="30,19,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click" Height="20" Grid.RowSpan="2">
 
         </Button>
-        <RichTextBox x:Name="RTB_RSSDesc" Margin="129,4,10,1" Grid.ColumnSpan="2" Grid.Row="5">
-            <FlowDocument/>
+        <RichTextBox x:Name="RTB_RSSDesc" Margin="1,4,10,1" Grid.Row="5" Grid.Column="1">
+            <FlowDocument>
+                <Paragraph/>
+            </FlowDocument>
         </RichTextBox>
-        <GroupBox x:Name="GB_Settings" Header="Menu" Margin="0,0,20,0" VerticalAlignment="Top" RenderTransformOrigin="-0.746,-0.652" Height="49" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <GroupBox x:Name="GB_Settings" Header="Menu" Margin="10,1,10,0" VerticalAlignment="Top" RenderTransformOrigin="-0.746,-0.652" Height="49" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <Image x:Name="Img_article" Margin="132,4,0,48" Grid.Row="5"/>
 
     </Grid>
 </Window>
