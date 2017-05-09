@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,13 +48,15 @@ namespace RSSReader
 
     public class TnijXML
     {
-        public static List<string> GetLinksFromFile(string myXmlString, string mark)
+        public static List<string> GetLinksFromFile(string mark)
         {
             XmlDocument xml = new XmlDocument();
             List<string> vals = null;
-            
-            xml.Load("c:\\temp.xml");
-           // xml.LoadXml(myXmlString);
+            var fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "user.config");
+
+
+            xml.Load(fileName);
+            // xml.LoadXml(myXmlString);
 
             //"/ArrayOfString" lub "value"
 
