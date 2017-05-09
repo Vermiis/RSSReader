@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Timers;
 using System.Xml;
+using System.Linq;
 using System.Windows.Forms;
 using System.ServiceModel.Syndication;
 using System.Globalization;
@@ -51,7 +52,8 @@ namespace RSSReader
                     post.Title = item.Title.Text;
                     post.Description = item.Summary.Text;
                     post.PublishedDate = item.PublishDate.DateTime;
-                    post.Link = "";
+                    post.Link = item.Links[0].Uri.ToString();
+                        
                     feedsList.Add(post);              
                 }
                 
