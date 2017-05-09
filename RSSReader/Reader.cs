@@ -96,24 +96,4 @@ namespace RSSReader
         public void Stop() { _timer.Stop(); }
     }
 
-    public class TnijXML
-    {
-        public static List<string> GetLinksFromFile(string myXmlString)
-        {
-            XmlDocument xml = new XmlDocument();
-            List<string> linki = null;
-            xml.LoadXml(myXmlString);
-
-            XmlNodeList xnList = xml.SelectNodes("/ArrayOfString");
-            foreach (XmlNode xn in xnList)
-            {
-                string link = xn["String"].InnerText;
-
-                linki.Add(link);
-            }
-            return linki;
-
-        }
-    }
-
 }
