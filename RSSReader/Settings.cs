@@ -51,7 +51,9 @@ namespace RSSReader
         {
             XmlDocument xml = new XmlDocument();
             List<string> vals = null;
-            xml.LoadXml(myXmlString);
+            
+            xml.Load("c:\\temp.xml");
+           // xml.LoadXml(myXmlString);
 
             //"/ArrayOfString" lub "value"
 
@@ -63,6 +65,7 @@ namespace RSSReader
                 vals.Add(val);
             }
             return vals;
+            //jak time to trzeba będzie brać item zerowy
 
         }
     }
