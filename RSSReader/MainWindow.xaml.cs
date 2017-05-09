@@ -14,12 +14,9 @@ namespace RSSReader
         public MainWindow()
         {
             InitializeComponent();
+            DataTimeConverter.ConvertDateTime("");
             DataWriter.WriteFeeds(Getter.xmel());
             FeedRss();
-
-            RSSRefresher.RSSRefresherFunc();
-            RSSRefresher._timer.Stop();
-            RSSRefresher._timer.Dispose();
         }
         void FeedRss()
         {
@@ -32,6 +29,12 @@ namespace RSSReader
                 //a++;
             }
             //this.DG_RSSTitle.Columns[0].Visibility = Visibility.Hidden;
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            ReadRSSWindow Rss = new ReadRSSWindow();
+            Rss.ShowDialog();
         }
 
         private void btn_Close_Click(object sender, RoutedEventArgs e)

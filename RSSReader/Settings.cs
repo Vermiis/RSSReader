@@ -44,29 +44,4 @@ namespace RSSReader
         }
 
     }
-
-    public class TnijXML
-    {
-        public static List<string> GetLinksFromFile(string myXmlString, string mark)
-        {
-            XmlDocument xml = new XmlDocument();
-            List<string> vals = null;
-            
-            xml.Load("c:\\temp.xml");
-           // xml.LoadXml(myXmlString);
-
-            //"/ArrayOfString" lub "value"
-
-            XmlNodeList xnList = xml.SelectNodes(mark);
-            foreach (XmlNode xn in xnList)
-            {
-                string val = xn["String"].InnerText;
-
-                vals.Add(val);
-            }
-            return vals;
-            //jak time to trzeba będzie brać item zerowy
-
-        }
-    }
 }

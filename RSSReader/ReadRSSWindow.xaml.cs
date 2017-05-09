@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace RSSReader
+{
+    /// <summary>
+    /// Interaction logic for ReadRSSWindow.xaml
+    /// </summary>
+    public partial class ReadRSSWindow : Window
+    {
+        public ReadRSSWindow()
+        {
+            InitializeComponent();
+            TB_RSS.Text = RSSReader.Reader.Feeds();
+        }
+
+        private void btn_Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+    }
+}

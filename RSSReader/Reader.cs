@@ -10,8 +10,6 @@ using System;
 
 namespace RSSReader
 {
-    namespace RSSReader
-    {
     public class Reader
     {
         // Pytanie, czym się różni funcja Feeds() od xmel(), mam wrażenie że obie realizują to samo zadanie.
@@ -23,14 +21,15 @@ namespace RSSReader
             string feeds = "";
             foreach (var i in items)
             {
-                var x = (string.Format("{0}\t{1}", i.Date.ToString("g"), i.Title)
+                var x = (string.Format("{0}\t{1}",
+                        i.Date.ToString("g"),
+                        i.Title)
                 );
                 feeds += x + "\n";
             }
             return feeds;
         }
     }
-
 
     public class Getter
     {
@@ -53,7 +52,8 @@ namespace RSSReader
                     post.Title = item.Title.Text;
                     post.Description = item.Summary.Text;
                     post.PublishedDate = item.PublishDate.DateTime;
-                    post.Link = item.Links[0].Uri.ToString();                       
+                    post.Link = item.Links[0].Uri.ToString();
+                        
                     feedsList.Add(post);              
                 }
                 
@@ -62,25 +62,58 @@ namespace RSSReader
         }
     }
 
-    public class RSSRefresher
+    #region cutter
+    //public class Cutter
+    //{
+    //    public static Post Posts(IEnumerable<FeedItem> x)
+    //    {
+    //        XmlDocument doc = new XmlDocument();
+    //        doc.Load("c:\\temp.xml");
+    //        var pos = new Post();
+    //        foreach (XmlNode node in doc.DocumentElement.ChildNodes)
+    //        {
+    //            string text = node.InnerText; //or loop through its children as well
+    //            string attr = node.Attributes["link"]?.InnerText;
+    //        }
+
+    //        return;
+
+
+    //    }
+    //}
+    #endregion
+
+
+    public class TownCrier
     {
-        public static System.Timers.Timer _timer;
-
-        public static void RSSRefresherFunc()
+        readonly System.Timers.Timer _timer;
+        public TownCrier()
         {
-            _timer = new System.Timers.Timer(60000);
-            _timer.Elapsed += OnTimedEvent;
-            _timer.AutoReset = true;
-            _timer.Enabled = true;
+            _timer = new System.Timers.Timer(1000) { AutoReset = true };
+            _timer.Elapsed += (sender, eventArgs) => Getter.xmel();
         }
-
-        private static void OnTimedEvent(Object source, ElapsedEventArgs e)
-        {
-            Getter.xmel();
-            MessageBox.Show("The Elapsed event was raised at {0:HH:mm:ss.fff}" + e.SignalTime);
-        }
+        public void Start() { _timer.Start(); }
+        public void Stop() { _timer.Stop(); }
     }
 
+    public class TnijXML
+    {
+        public static List<string> GetLinksFromFile(string myXmlString)
+        {
+            XmlDocument xml = new XmlDocument();
+            List<string> linki = null;
+            xml.LoadXml(myXmlString);
 
+            XmlNodeList xnList = xml.SelectNodes("/ArrayOfString");
+            foreach (XmlNode xn in xnList)
+            {
+                string link = xn["String"].InnerText;
+
+                linki.Add(link);
+            }
+            return linki;
+
+        }
+    }
 
 }

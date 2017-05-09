@@ -119,6 +119,9 @@
     <Compile Include="DataWriter.cs" />
     <Compile Include="DataClass\Feeds.cs" />
     <Compile Include="DataClass\IDUserIDCategory.cs" />
+    <Compile Include="ReadRSSWindow.xaml.cs">
+      <DependentUpon>ReadRSSWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
@@ -135,6 +138,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ReadRSSWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SettingsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
