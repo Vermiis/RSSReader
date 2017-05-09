@@ -10,27 +10,6 @@ using System;
 
 namespace RSSReader
 {
-    public class Reader
-    {
-        // Pytanie, czym się różni funcja Feeds() od xmel(), mam wrażenie że obie realizują to samo zadanie.
-        public static string Feeds()
-        {
-            var reader = new FeedReader();
-            // Docelowo dane zaczytywane od użytkownika
-            var items = reader.RetrieveFeed("http://www.nytimes.com/services/xml/rss/nyt/International.xml");
-            string feeds = "";
-            foreach (var i in items)
-            {
-                var x = (string.Format("{0}\t{1}",
-                        i.Date.ToString("g"),
-                        i.Title)
-                );
-                feeds += x + "\n";
-            }
-            return feeds;
-        }
-    }
-
     public class Getter
     {
         public static List<Post> xmel()
@@ -60,28 +39,6 @@ namespace RSSReader
             return feedsList;
         }
     }
-
-    #region cutter
-    //public class Cutter
-    //{
-    //    public static Post Posts(IEnumerable<FeedItem> x)
-    //    {
-    //        XmlDocument doc = new XmlDocument();
-    //        doc.Load("c:\\temp.xml");
-    //        var pos = new Post();
-    //        foreach (XmlNode node in doc.DocumentElement.ChildNodes)
-    //        {
-    //            string text = node.InnerText; //or loop through its children as well
-    //            string attr = node.Attributes["link"]?.InnerText;
-    //        }
-
-    //        return;
-
-
-    //    }
-    //}
-    #endregion
-
 
     public class RSSRefresher
     {
