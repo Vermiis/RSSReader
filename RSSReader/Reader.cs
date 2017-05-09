@@ -52,8 +52,7 @@ namespace RSSReader
                     post.Title = item.Title.Text;
                     post.Description = item.Summary.Text;
                     post.PublishedDate = item.PublishDate.DateTime;
-                    post.Link = item.Links[0].Uri.ToString();
-                        
+                    post.Link = item.Links[0].Uri.ToString();                       
                     feedsList.Add(post);              
                 }
                 
@@ -84,10 +83,10 @@ namespace RSSReader
     #endregion
 
 
-    public class TownCrier
+    public class RSSRefresher
     {
         readonly System.Timers.Timer _timer;
-        public TownCrier()
+        public RSSRefresher()
         {
             _timer = new System.Timers.Timer(1000) { AutoReset = true };
             _timer.Elapsed += (sender, eventArgs) => Getter.xmel();
