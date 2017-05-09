@@ -119,7 +119,6 @@
     <Compile Include="DataWriter.cs" />
     <Compile Include="DataClass\Feeds.cs" />
     <Compile Include="DataClass\IDUserIDCategory.cs" />
-    <Compile Include="InicializeDataBase.cs" />
     <Compile Include="ReadRSSWindow.xaml.cs">
       <DependentUpon>ReadRSSWindow.xaml</DependentUpon>
     </Compile>

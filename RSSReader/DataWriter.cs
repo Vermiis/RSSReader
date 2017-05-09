@@ -41,7 +41,5 @@ namespace RSSReader
             cmd.Parameters.AddWithValue("@Url", post.Link);
             cmd.ExecuteNonQuery();
         }
-
-
     }
 }

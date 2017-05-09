@@ -36,8 +36,8 @@ namespace RSSReader
         {
             var feedsList = new List<Post>();
             List<string> UrlList = new List<string>();
-            UrlList.Add("http://wiadomosci.wp.pl/ver,rss,rss.xml");
            // UrlList.Add("http://www.tvn24.pl/najnowsze.xml");
+            UrlList.Add("http://wiadomosci.wp.pl/ver,rss,rss.xml");
            // UrlList.Add("http://www.tvn24.pl/biznes-gospodarka,6.xml");
             UrlList.Add("http://fakty.interia.pl/feed");
 
@@ -47,6 +47,7 @@ namespace RSSReader
                 SyndicationFeed feed = SyndicationFeed.Load(reader);
                 foreach (var item in feed.Items)
                 {
+                    item.
                     Post post = new Post(DateTime.Now);
                     post.Title = item.Title.Text;
                     post.Description = item.Summary.Text;

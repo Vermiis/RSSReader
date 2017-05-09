@@ -1,7 +1,4 @@
-﻿using System;
-using System.Data.Entity.Core.Objects;
-using System.Drawing;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 
@@ -18,8 +15,6 @@ namespace RSSReader
         {
             InitializeComponent();
             DataTimeConverter.ConvertDateTime("");
-            Class.InicializeDataBase Init = new Class.InicializeDataBase();
-            Init.inicjalizeDataBase();
             DataWriter.WriteFeeds(Getter.xmel());
             FeedRss();
         }
