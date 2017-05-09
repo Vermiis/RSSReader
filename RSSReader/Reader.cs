@@ -48,7 +48,6 @@ namespace RSSReader
                 SyndicationFeed feed = SyndicationFeed.Load(reader);
                 foreach (var item in feed.Items)
                 {
-                    item.
                     Post post = new Post(DateTime.Now);
                     post.Title = item.Title.Text;
                     post.Description = item.Summary.Text;
