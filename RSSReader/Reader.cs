@@ -37,8 +37,8 @@ namespace RSSReader
         {
             var feedsList = new List<Post>();
             List<string> UrlList = new List<string>();
-            UrlList.Add("http://wiadomosci.wp.pl/ver,rss,rss.xml");
            // UrlList.Add("http://www.tvn24.pl/najnowsze.xml");
+            UrlList.Add("http://wiadomosci.wp.pl/ver,rss,rss.xml");
            // UrlList.Add("http://www.tvn24.pl/biznes-gospodarka,6.xml");
             UrlList.Add("http://fakty.interia.pl/feed");
 
@@ -93,26 +93,6 @@ namespace RSSReader
         }
         public void Start() { _timer.Start(); }
         public void Stop() { _timer.Stop(); }
-    }
-
-    public class TnijXML
-    {
-        public static List<string> GetLinksFromFile(string myXmlString)
-        {
-            XmlDocument xml = new XmlDocument();
-            List<string> linki = null;
-            xml.LoadXml(myXmlString);
-
-            XmlNodeList xnList = xml.SelectNodes("/ArrayOfString");
-            foreach (XmlNode xn in xnList)
-            {
-                string link = xn["String"].InnerText;
-
-                linki.Add(link);
-            }
-            return linki;
-
-        }
     }
 
 }
