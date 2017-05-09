@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Timers;
 using System.Xml;
+using System.Linq;
 using System.Windows.Forms;
 using System.ServiceModel.Syndication;
 using System.Globalization;
@@ -52,7 +53,8 @@ namespace RSSReader
                     post.Title = item.Title.Text;
                     post.Description = item.Summary.Text;
                     post.PublishedDate = item.PublishDate.DateTime;
-                    post.Link = "";
+                    post.Link = item.Links[0].Uri.ToString();
+                        
                     feedsList.Add(post);              
                 }
                 
@@ -83,26 +85,16 @@ namespace RSSReader
     #endregion
 
 
-    public class Refresher
+    public class TownCrier
     {
-        void RefreshConfTimer(int val)
+        readonly System.Timers.Timer _timer;
+        public TownCrier()
         {
-            // Create a timer
-            var myTimer = new System.Timers.Timer();
-            // Tell the timer what to do when it elapses
-            myTimer.Elapsed += new ElapsedEventHandler(myEvent);
-            // Set it to go off every val seconds
-            myTimer.Interval = val;
-            // And start it        
-            myTimer.Enabled = true;
-            // ma pobierać VAL z GUI i wedle wpisanej watosci wywolywac funkcje pobierajaca feed'y
+            _timer = new System.Timers.Timer(1000) { AutoReset = true };
+            _timer.Elapsed += (sender, eventArgs) => Getter.xmel();
         }
-
-        // Implement a call with the right signature for events going off
-        private void myEvent(object source, ElapsedEventArgs e)
-        {
-
-        }
+        public void Start() { _timer.Start(); }
+        public void Stop() { _timer.Stop(); }
     }
 
     public class TnijXML
