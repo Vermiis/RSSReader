@@ -10,6 +10,28 @@ using System;
 
 namespace RSSReader
 {
+    namespace RSSReader
+    {
+    public class Reader
+    {
+        // Pytanie, czym się różni funcja Feeds() od xmel(), mam wrażenie że obie realizują to samo zadanie.
+        public static string Feeds()
+        {
+            var reader = new FeedReader();
+            // Docelowo dane zaczytywane od użytkownika
+            var items = reader.RetrieveFeed("http://www.nytimes.com/services/xml/rss/nyt/International.xml");
+            string feeds = "";
+            foreach (var i in items)
+            {
+                var x = (string.Format("{0}\t{1}", i.Date.ToString("g"), i.Title)
+                );
+                feeds += x + "\n";
+            }
+            return feeds;
+        }
+    }
+
+
     public class Getter
     {
         public static List<Post> xmel()
@@ -42,14 +64,23 @@ namespace RSSReader
 
     public class RSSRefresher
     {
-        readonly System.Timers.Timer _timer;
-        public RSSRefresher()
+        public static System.Timers.Timer _timer;
+
+        public static void RSSRefresherFunc()
         {
-            _timer = new System.Timers.Timer(1000) { AutoReset = true };
-            _timer.Elapsed += (sender, eventArgs) => Getter.xmel();
+            _timer = new System.Timers.Timer(60000);
+            _timer.Elapsed += OnTimedEvent;
+            _timer.AutoReset = true;
+            _timer.Enabled = true;
         }
-        public void Start() { _timer.Start(); }
-        public void Stop() { _timer.Stop(); }
+
+        private static void OnTimedEvent(Object source, ElapsedEventArgs e)
+        {
+            Getter.xmel();
+            MessageBox.Show("The Elapsed event was raised at {0:HH:mm:ss.fff}" + e.SignalTime);
+        }
     }
+
+
 
 }
