@@ -10,110 +10,77 @@ using System;
 
 namespace RSSReader
 {
-    public class Reader
+    namespace RSSReader
     {
-        // Pytanie, czym się różni funcja Feeds() od xmel(), mam wrażenie że obie realizują to samo zadanie.
-        public static string Feeds()
+        public class Reader
         {
-            var reader = new FeedReader();
-            // Docelowo dane zaczytywane od użytkownika
-            var items = reader.RetrieveFeed("http://www.nytimes.com/services/xml/rss/nyt/International.xml");
-            string feeds = "";
-            foreach (var i in items)
+            // Pytanie, czym się różni funcja Feeds() od xmel(), mam wrażenie że obie realizują to samo zadanie.
+            public static string Feeds()
             {
-                var x = (string.Format("{0}\t{1}",
-                        i.Date.ToString("g"),
-                        i.Title)
-                );
-                feeds += x + "\n";
-            }
-            return feeds;
-        }
-    }
-
-    public class Getter
-    {
-        public static List<Post> xmel()
-        {
-            var feedsList = new List<Post>();
-            List<string> UrlList = new List<string>();
-           // UrlList.Add("http://www.tvn24.pl/najnowsze.xml");
-            UrlList.Add("http://wiadomosci.wp.pl/ver,rss,rss.xml");
-           // UrlList.Add("http://www.tvn24.pl/biznes-gospodarka,6.xml");
-            UrlList.Add("http://fakty.interia.pl/feed");
-
-            foreach (var link in UrlList)
-            {
-                XmlReader reader = XmlReader.Create(link);
-                SyndicationFeed feed = SyndicationFeed.Load(reader);
-                foreach (var item in feed.Items)
+                var reader = new FeedReader();
+                // Docelowo dane zaczytywane od użytkownika
+                var items = reader.RetrieveFeed("http://www.nytimes.com/services/xml/rss/nyt/International.xml");
+                string feeds = "";
+                foreach (var i in items)
                 {
-                    Post post = new Post(DateTime.Now);
-                    post.Title = item.Title.Text;
-                    post.Description = item.Summary.Text;
-                    post.PublishedDate = item.PublishDate.DateTime;
-                    post.Link = item.Links[0].Uri.ToString();
-                        
-                    feedsList.Add(post);              
+                    var x = (string.Format("{0}\t{1}", i.Date.ToString("g"), i.Title)
+                    );
+                    feeds += x + "\n";
                 }
-                
+                return feeds;
             }
-            return feedsList;
         }
-    }
-
-    #region cutter
-    //public class Cutter
-    //{
-    //    public static Post Posts(IEnumerable<FeedItem> x)
-    //    {
-    //        XmlDocument doc = new XmlDocument();
-    //        doc.Load("c:\\temp.xml");
-    //        var pos = new Post();
-    //        foreach (XmlNode node in doc.DocumentElement.ChildNodes)
-    //        {
-    //            string text = node.InnerText; //or loop through its children as well
-    //            string attr = node.Attributes["link"]?.InnerText;
-    //        }
-
-    //        return;
 
 
-    //    }
-    //}
-    #endregion
-
-
-    public class TownCrier
-    {
-        readonly System.Timers.Timer _timer;
-        public TownCrier()
+        public class Getter
         {
-            _timer = new System.Timers.Timer(1000) { AutoReset = true };
-            _timer.Elapsed += (sender, eventArgs) => Getter.xmel();
-        }
-        public void Start() { _timer.Start(); }
-        public void Stop() { _timer.Stop(); }
-    }
-
-    public class TnijXML
-    {
-        public static List<string> GetLinksFromFile(string myXmlString)
-        {
-            XmlDocument xml = new XmlDocument();
-            List<string> linki = null;
-            xml.LoadXml(myXmlString);
-
-            XmlNodeList xnList = xml.SelectNodes("/ArrayOfString");
-            foreach (XmlNode xn in xnList)
+            public static List<Post> xmel()
             {
-                string link = xn["String"].InnerText;
+                var feedsList = new List<Post>();
+                List<string> UrlList = new List<string>();
+                // UrlList.Add("http://www.tvn24.pl/najnowsze.xml");
+                UrlList.Add("http://wiadomosci.wp.pl/ver,rss,rss.xml");
+                // UrlList.Add("http://www.tvn24.pl/biznes-gospodarka,6.xml");
+                UrlList.Add("http://fakty.interia.pl/feed");
 
-                linki.Add(link);
+                foreach (var link in UrlList)
+                {
+                    XmlReader reader = XmlReader.Create(link);
+                    SyndicationFeed feed = SyndicationFeed.Load(reader);
+                    foreach (var item in feed.Items)
+                    {
+                        Post post = new Post(DateTime.Now);
+                        post.Title = item.Title.Text;
+                        post.Description = item.Summary.Text;
+                        post.PublishedDate = item.PublishDate.DateTime;
+                        post.Link = item.Links[0].Uri.ToString();
+                        feedsList.Add(post);
+                    }
+
+                }
+                return feedsList;
             }
-            return linki;
-
         }
-    }
 
+        public class RSSRefresher
+        {
+            public static System.Timers.Timer _timer;
+
+            public static void RSSRefresherFunc()
+            {
+                _timer = new System.Timers.Timer(60000);
+                _timer.Elapsed += OnTimedEvent;
+                _timer.AutoReset = true;
+                _timer.Enabled = true;
+            }
+
+            private static void OnTimedEvent(Object source, ElapsedEventArgs e)
+            {
+                Getter.xmel();
+                MessageBox.Show("The Elapsed event was raised at {0:HH:mm:ss.fff}" + e.SignalTime);
+            }
+        }
+
+
+    }
 }
