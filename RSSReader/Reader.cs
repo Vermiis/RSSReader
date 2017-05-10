@@ -52,8 +52,7 @@ namespace RSSReader
                     post.Title = item.Title.Text;
                     post.Description = item.Summary.Text;
                     post.PublishedDate = item.PublishDate.DateTime;
-                    post.Link = item.Links[0].Uri.ToString();
-                        
+                    post.Link = item.Links[0].Uri.AbsoluteUri.ToString();
                     feedsList.Add(post);              
                 }
                 

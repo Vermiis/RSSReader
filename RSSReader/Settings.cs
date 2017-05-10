@@ -51,7 +51,6 @@ namespace RSSReader
             props = Properties.Settings.Default.Refresh.ToString();
             props += ";";
             props += Properties.Settings.Default.Link;
-            
             System.IO.File.WriteAllText(@"C:\Users\"+Environment.UserName+@"\AppData\Local\RSSReader\Settings.txt", props);
         }
     }
