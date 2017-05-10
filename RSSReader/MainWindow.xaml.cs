@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿//using RSSReader.RSSReader;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 
@@ -17,6 +18,7 @@ namespace RSSReader
             DataTimeConverter.ConvertDateTime("");
             DataWriter.WriteFeeds(Getter.xmel());
             FeedRss();
+            Settings.SendPropFile();
         }
         void FeedRss()
         {

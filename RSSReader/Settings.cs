@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Windows.Forms;
 
 namespace RSSReader
 {
@@ -43,7 +44,16 @@ namespace RSSReader
             }
             return null;
         }
-
+        public static void SendPropFile()
+        {
+            string props;
+            
+            props = Properties.Settings.Default.Refresh.ToString();
+            props += ";";
+            props += Properties.Settings.Default.Link;
+            
+            System.IO.File.WriteAllText(@"C:\Users\"+Environment.UserName+@"\AppData\Local\RSSReader\Settings.txt", props);
+        }
     }
 
     public class TnijXML
@@ -53,7 +63,7 @@ namespace RSSReader
             XmlDocument xml = new XmlDocument();
             List<string> vals = null;
             var fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "user.config");
-
+            
 
             xml.Load(fileName);
             // xml.LoadXml(myXmlString);
@@ -71,5 +81,7 @@ namespace RSSReader
             //jak time to trzeba będzie brać item zerowy
 
         }
+
     }
+
 }
