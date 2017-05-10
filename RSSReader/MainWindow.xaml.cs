@@ -1,7 +1,10 @@
 ﻿//using RSSReader.RSSReader;
+using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Media.Imaging;
 
 namespace RSSReader
 {
@@ -58,9 +61,26 @@ namespace RSSReader
         private void DG_RSSTitle_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             RTB_RSSDesc.Document.Blocks.Clear();
-            var test=DG_RSSTitle.CurrentCell.Item;
-            string description = ((RSSReader.Feed)test).Description;
+            var desc = DG_RSSTitle.CurrentCell.Item;
+            try
+            {
+                string description = ((RSSReader.Feed)desc).Description;
+                DescriptioncCut(description);
+            }
+            catch (System.Exception)
+            {
+            }
+        }
+        public void DescriptioncCut(string Desc)
+        {
+            string photo;
+            string description;
+            string[] temp = Desc.Split('>','<');
+            description = temp[2];
+            temp = temp[1].Split('"');
+            photo = temp[1];
             RTB_RSSDesc.Document.Blocks.Add(new Paragraph(new Run(description)));
+            Img_article.Source= new BitmapImage(new Uri(photo));
         }
         public DataGridCell GetDataGridCell(DataGridCellInfo cellInfo)
         {
