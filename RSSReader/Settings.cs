@@ -58,30 +58,32 @@ namespace RSSReader
 
     public class TnijXML
     {
-        public static List<string> GetLinksFromFile(string mark)
+        public static List<string> FindValues()
         {
-            XmlDocument xml = new XmlDocument();
-            List<string> vals = null;
-            var fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "user.config");
-            
+            string text = System.IO.File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\AppData\Local\RSSReader\Settings.txt").ToString();
+            char[] delimiterChars = { ';' };
 
-            xml.Load(fileName);
-            // xml.LoadXml(myXmlString);
 
-            //"/ArrayOfString" lub "value"
 
-            XmlNodeList xnList = xml.SelectNodes(mark);
-            foreach (XmlNode xn in xnList)
+            string[] words = text.Split(delimiterChars);
+            List<string> Wordz = new List<string>();
+
+
+            foreach (string s in words)
             {
-                string val = xn["String"].InnerText;
 
-                vals.Add(val);
+                Wordz.Add(s);
+
+
             }
-            return vals;
-            //jak time to trzeba będzie brać item zerowy
+            return Wordz;
+
+
 
         }
 
     }
+
+    
 
 }
