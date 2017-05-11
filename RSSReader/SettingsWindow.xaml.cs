@@ -78,6 +78,8 @@ namespace RSSReader
                 Properties.Settings.Default.Refresh = refreshTime;
                 Properties.Settings.Default.Save();
                 MessageBox.Show("Zapisano");
+                Settings.SendPropFile();
+
             }
             else
             {
