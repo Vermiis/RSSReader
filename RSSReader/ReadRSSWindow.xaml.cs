@@ -19,10 +19,10 @@ namespace RSSReader
     /// </summary>
     public partial class ReadRSSWindow : Window
     {
-        public ReadRSSWindow()
+        public ReadRSSWindow(string Uri)
         {
             InitializeComponent();
-            TB_RSS.Text = RSSReader.Reader.Feeds();
+            Wb_Article.Navigate(new Uri(Uri));
         }
 
         private void btn_Close_Click(object sender, RoutedEventArgs e)

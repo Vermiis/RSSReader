@@ -1,8 +1,9 @@
 ﻿//using RSSReader.RSSReader;
 using System;
+using System.Windows.Controls;
+using System.Data;
 using System.IO;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media.Imaging;
 
@@ -11,10 +12,13 @@ namespace RSSReader
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
     public partial class MainWindow : Window
     {
+        public string HtmlAdress { get; set; }
+
         RSSTitle dataEntities = new RSSTitle();
-       
+
         public MainWindow()
         {
             InitializeComponent();
@@ -22,6 +26,13 @@ namespace RSSReader
             DataWriter.WriteFeeds(Getter.xmel());
             FeedRss();
             Settings.SendPropFile();
+            HideColumns();
+        }
+        void HideColumns()
+        {
+            //DG_RSSTitle.SetDetailsVisibilityForItem( SetDataBinding(ds, "Products")
+            //DG_RSSTitle.Columns[1].Visibility = Visibility.Hidden;
+
         }
         void FeedRss()
         {
@@ -29,6 +40,7 @@ namespace RSSReader
             DG_RSSTitle.ItemsSource = dataEntities.Feeds.Local;
             foreach (var feed in dataEntities.Feeds)
             {
+                
                 //int a = 0;
                 //DG_RSSTitle.Items.Add = feed.Title.ToString();
                 //a++;
@@ -36,11 +48,7 @@ namespace RSSReader
             //this.DG_RSSTitle.Columns[0].Visibility = Visibility.Hidden;
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            ReadRSSWindow Rss = new ReadRSSWindow();
-            Rss.ShowDialog();
-        }
+
 
         private void btn_Close_Click(object sender, RoutedEventArgs e)
         {
@@ -53,10 +61,7 @@ namespace RSSReader
             Settings.ShowDialog();
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void DG_RSSTitle_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
@@ -65,6 +70,7 @@ namespace RSSReader
             try
             {
                 string description = ((RSSReader.Feed)desc).Description;
+                HtmlAdress = ((RSSReader.Feed)desc).Url;
                 DescriptioncCut(description);
             }
             catch (System.Exception)
@@ -75,12 +81,12 @@ namespace RSSReader
         {
             string photo;
             string description;
-            string[] temp = Desc.Split('>','<');
+            string[] temp = Desc.Split('>', '<');
             description = temp[2];
             temp = temp[1].Split('"');
             photo = temp[1];
             RTB_RSSDesc.Document.Blocks.Add(new Paragraph(new Run(description)));
-            Img_article.Source= new BitmapImage(new Uri(photo));
+            Img_article.Source = new BitmapImage(new Uri(photo));
         }
         public DataGridCell GetDataGridCell(DataGridCellInfo cellInfo)
         {
@@ -89,6 +95,19 @@ namespace RSSReader
                 return (DataGridCell)cellContent.Parent;
 
             return null;
+        }
+
+
+        private void btn_ShowArticle_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ReadRSSWindow Rss = new ReadRSSWindow(HtmlAdress);
+                Rss.ShowDialog();
+            }
+            catch (System.Exception)
+            {
+            }
         }
     }
 }
