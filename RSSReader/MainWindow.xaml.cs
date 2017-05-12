@@ -111,20 +111,19 @@ namespace RSSReader
             }
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            using (SqlConnection cn = new SqlConnection())
-            {
-                cn.ConnectionString = @"Data Source=LOCALHOST\SQLEXPRESS;Initial Catalog=RSSReader.Class.DataBase;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;";
-
-                cn.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = cn;
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "DELETE FROM Feeds";
-                cmd.ExecuteNonQuery();
-                cn.Close();
-            }
-        }
+        //private void button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    using (SqlConnection cn = new SqlConnection())
+        //    {
+        //        cn.ConnectionString = @"Data Source=LOCALHOST\SQLEXPRESS;Initial Catalog=RSSReader.Class.DataBase;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;";
+        //        cn.Open();
+        //        SqlCommand cmd = new SqlCommand();
+        //        cmd.Connection = cn;
+        //        cmd.CommandType = CommandType.Text;
+        //        cmd.CommandText = "DELETE FROM Feeds";
+        //        cmd.ExecuteNonQuery();
+        //        cn.Close();
+        //    }
+        //}
     }
 }

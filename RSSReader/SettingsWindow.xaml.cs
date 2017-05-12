@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -70,6 +71,20 @@ namespace RSSReader
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
             int refreshTime;
+            if (tb_refreshTime.Text=="clear")
+            {
+                using (SqlConnection cn = new SqlConnection())
+                {
+                    cn.ConnectionString = @"Data Source=LOCALHOST\SQLEXPRESS;Initial Catalog=RSSReader.Class.DataBase;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;";
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = cn;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "DELETE FROM Feeds";
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                }
+            }
             bool res = int.TryParse(tb_refreshTime.Text.ToString(), out refreshTime);
             if (tb_refreshTime.Text !="" && tb_Link.Text!="" && res==true && refreshTime>0)
             {
